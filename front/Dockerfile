@@ -13,7 +13,6 @@ ENV APP_HOME=/home/$USUARIO/angular
 RUN mkdir $APP_HOME
 RUN chown -R $USUARIO:$GRUPO $APP_HOME
 WORKDIR $APP_HOME
-RUN npm install http-server -g
 USER $USUARIO
 
 EXPOSE 4200/TCP
