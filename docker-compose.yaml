@@ -56,8 +56,8 @@ services:
       volumes:
          - ./front:/home/app/angular
             
-      # command: bash -c "npm install && ng serve --host=front"
-      command: bash -c "ng serve --host=front"
+      command: bash -c "npm install && ng serve --host=front"
+      #command: bash -c "ng serve --host=front"
       # command: /bin/bash
         
       ports:
