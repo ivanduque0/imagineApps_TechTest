@@ -1,12 +1,11 @@
 import { IsNotEmpty, IsString, MinLength } from "class-validator";
 import { User } from "src/schemas/users.schema";
-import { createdByDto } from "./createdby.dto";
 
-export class UserPostsDto {
+export class createdByDto {
 
-  @IsNotEmpty()
-  createdBy: createdByDto;
+  @IsString()
+  email: string;
   
   @IsString()
-  date: string;
+  username: string;
 }

@@ -1,0 +1,20 @@
+button {
+    justify-content: flex-end;
+    height: 35px;
+    width: 150px;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, #57BBDB , #C645A9);
+    border: none;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+  }

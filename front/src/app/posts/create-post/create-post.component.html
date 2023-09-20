@@ -1,0 +1,19 @@
+<app-header></app-header>
+<form [formGroup]="createPostForm" (ngSubmit)="submit()">
+  <mat-form-field>
+    <mat-label>title</mat-label>
+    <input type="text" matInput formControlName="title" placeholder="Your post title">
+  </mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <mat-label>Content</mat-label>
+    <textarea matInput formControlName="content" #content maxlength="300"  placeholder="Create message for share with your friends"></textarea>
+    <mat-hint align="end">{{content.value.length}} / 300</mat-hint>
+  </mat-form-field>
+
+  <div class="d-flex justify-content-center mt-3 button">
+  
+    <!-- <button type="submit" mat-button [disabled]="!loginForm.valid">Login</button> -->
+    <button type="submit">Share</button>
+  </div>
+</form>

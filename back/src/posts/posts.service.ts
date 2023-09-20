@@ -5,6 +5,7 @@ import { Model } from 'mongoose';
 import { Post } from 'src/schemas/post.schema';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { UserPostsDto } from './dtos/user-posts.dto';
+import { createdByDto } from './dtos/createdby.dto';
 
 @Injectable()
 export class PostsService {
@@ -53,8 +54,6 @@ export class PostsService {
             let dateFrom = new Date(date);
             let dateTo = new Date(date);
             dateTo.setDate(dateFrom.getDate() + 1);
-            console.log(dateFrom)
-            console.log(dateTo)
             return await this.postModel.find(      
                 {
                     createdAt:  { $gte: dateFrom , $lt: dateTo}
@@ -90,29 +89,29 @@ export class PostsService {
         return await this.findAllPosts();
     }
 
-    async findAllUserPosts(email: string){
+    async findAllUserPosts(createdBy: createdByDto){
         return await this.postModel.find(
             {
-                'createdBy': email
+                'createdBy': createdBy
             }
         ).sort({createdAt: -1});
     }
 
-    async findUserPosts({email, date}){
-        if (email && !date) {
+    async findUserPosts({createdBy, date}){
+        if (createdBy && !date) {
             return await this.postModel.find(
                 {
-                    'createdBy': email
+                    'createdBy': createdBy
                 }
             ).sort({createdAt: -1});
         }
-        if (email && date) {
+        if (createdBy && date) {
             let dateFrom = new Date(date);
             let dateTo = new Date(date);
             dateTo.setDate(dateFrom.getDate() + 1);
             return await this.postModel.find(
                 {
-                    'createdBy': email,
+                    'createdBy': createdBy,
                     'createdAt':  { $gte: dateFrom , $lt: dateTo}
                 },
             ).sort({createdAt: -1});

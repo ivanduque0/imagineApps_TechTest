@@ -24,12 +24,6 @@ export class PostsController {
         return this.postService.findUserPosts(userPostsDto);
     }
 
-    @Get("/user-posts/:email")
-    @UseGuards(AuthGuard)
-    findAllUserPosts(@Param('email') email:string){
-        return this.postService.findAllUserPosts(email);
-    }
-
     @Get("/all-posts")
     @UseGuards(AuthGuard)
     findAllPosts(){

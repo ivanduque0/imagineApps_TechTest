@@ -34,16 +34,32 @@ services:
       expose:
          - "27017/tcp"
 
-  mongo-express:
-      image: mongo-express
-      restart: unless-stopped
-      ports:
-         - 8081:8081
-      environment:
-         ME_CONFIG_MONGODB_ADMINUSERNAME: test
-         ME_CONFIG_MONGODB_ADMINPASSWORD: test
-         ME_CONFIG_MONGODB_URL: mongodb://test:test@mongo:27017/
+#   mongo-express:
+#       image: mongo-express
+#       restart: unless-stopped
+#       ports:
+#          - 8081:8081
+#       environment:
+#          ME_CONFIG_MONGODB_ADMINUSERNAME: test
+#          ME_CONFIG_MONGODB_ADMINPASSWORD: test
+#          ME_CONFIG_MONGODB_URL: mongodb://test:test@mongo:27017/
    
-      depends_on:
-         - mongo
+#       depends_on:
+#          - mongo
+
+  front:
+
+      build: front/
+
+      container_name: front
+      
+      volumes:
+         - ./front:/home/app/angular
+            
+      # command: bash -c "npm install && ng serve --host=front"
+      command: bash -c "ng serve --host=front"
+      # command: /bin/bash
+        
+      ports:
+         - 4200:4200
     

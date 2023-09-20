@@ -1,0 +1,63 @@
+<div class="main-div container">
+  <div class="row">
+    <div class="col-lg-4 col-sm-12">
+      <div class="row">
+        <img src="../../../assets/image_main.png" alt="image">
+        <div>
+          <h1>Easy Media</h1>
+        </div>
+        <div>
+          <p>Now share is easy</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-12 ">
+      <mat-card class="mat-elevation-z0 justify-content-center">
+        <h3 class="text-center">Sign In</h3>
+        <mat-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Email" formControlName="email">
+              <!-- Here we can display error messages/hints for the user, if one of the Validators adds an error to the email 
+              with the .touched check we only display the hints if the input was touched by the users -->
+              <mat-error *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('required')">
+                Email is required</mat-error>
+              <mat-error *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('email')">
+                Email must be a valid Email</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input  matInput [type]="showPassword ? 'text' : 'password'" type="password" matInput placeholder="Password" formControlName="password">
+              <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{showPassword?'visibility_off':'visibility'}}
+            </mat-icon>
+              <mat-error
+                *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.hasError('required')">
+                Password is required</mat-error>
+            </mat-form-field>
+
+            <div class="d-flex justify-content-center mt-3 button">
+
+              <!-- <button type="submit" mat-button [disabled]="!loginForm.valid">Login</button> -->
+              <button type="submit">Sign In</button>
+             
+            </div>
+            <div class="d-flex justify-content-center button">
+
+              <mat-hint *ngIf="wrongCredentials" align="end" [ngStyle]="{color: '#f10000'}">Invalid email or password</mat-hint>
+             
+            </div>
+
+            <div class="d-flex justify-content-center mt-3 register">
+              ¿Don't have an account?&nbsp;<a class="lineeffect" [routerLink]="['/register']">Sign Up here</a>
+            </div>
+
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

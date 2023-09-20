@@ -1,0 +1,283 @@
+{
+    "info": {
+        "_postman_id": "8a6809f5-dc5c-4b80-8f00-736e624e2eac",
+        "name": "rest api",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "create post",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:3000/posts/create-post",
+                    "path": [
+                        "posts",
+                        "create-post"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"title\": \"third post\",\n  \"content\": \"this is my second post\",\n  \"createdBy\": {\"email\":\"pepe@gmail.com\", \"username\":\"pepe\"}\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk1MTY4NTM5LCJleHAiOjE2OTUyNTQ5Mzl9.A0FDwq4VQ1nZqlAHOifruWSpNKWZhorDPAtgDQjb0FA",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "user posts",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:3000/posts/user-posts",
+                    "path": [
+                        "posts",
+                        "user-posts"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"date\":\"2023-09-20\",\n  \"createdBy\": {\"email\":\"pepe@gmail.com\", \"username\":\"pepe\"}\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk1MTk4NDA3LCJleHAiOjE2OTUyODQ4MDd9.lOPQvVVsrxzkCutGkRfKlS0-wuBbqQFTxgLztPMYAoc",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "all user posts",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/posts/user-posts/pepe@gmail.com",
+                    "path": [
+                        "posts",
+                        "user-posts",
+                        "pepe@gmail.com"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"title\": \"first post\",\n  \"content\": \"this is my first post\",\n  \"createdBy\": \"pepe@gmail.com\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk1MTk4NDA3LCJleHAiOjE2OTUyODQ4MDd9.lOPQvVVsrxzkCutGkRfKlS0-wuBbqQFTxgLztPMYAoc",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "register",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:3000/auth/register/",
+                    "path": [
+                        "auth",
+                        "register"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"username\": \"pepe\",\n  \"email\": \"pepe@gmail.com\",\n  \"password\": \"123456789\"\n}"
+                }
+            }
+        },
+        {
+            "name": "posts",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:3000/posts/all-posts",
+                    "path": [
+                        "posts",
+                        "all-posts"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"word\":\"\",\n  \"date\": \"2023-09-20\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk1MTU4NTAxLCJleHAiOjE2OTUyNDQ5MDF9.QB9Ym0XvAVu_tUqkO5T333MrlfLupdLgmWB253X5uMw",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "all posts",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/posts/all-posts",
+                    "path": [
+                        "posts",
+                        "all-posts"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk1MTU4NTAxLCJleHAiOjE2OTUyNDQ5MDF9.QB9Ym0XvAVu_tUqkO5T333MrlfLupdLgmWB253X5uMw",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:3000/auth/login",
+                    "path": [
+                        "auth",
+                        "login"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\": \"pepe@gmail.com\",\n  \"password\": \"123456789\"\n}"
+                }
+            }
+        },
+        {
+            "name": "logout",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:3000/auth/logout",
+                    "path": [
+                        "auth",
+                        "logout"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        }
+    ]
+}

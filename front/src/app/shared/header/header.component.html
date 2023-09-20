@@ -1,0 +1,23 @@
+<mat-toolbar color="white">
+    <a class="navbar-brand" href="#"> <img src="../../../assets/easy_media_logo.png" alt="" width="35" height="35"> Easy Media</a>
+    <span class="spacer"></span>
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-menu #menu="matMenu">
+    <h3 class="text-center">{{currentUsername$}}</h3>
+    <button mat-menu-item (click)="goTo('/create-post')">
+      <span>Create Post</span>
+    </button>
+    <button mat-menu-item (click)="goTo('/my-posts')">
+      <span>My posts</span>
+    </button>
+    <button mat-menu-item (click)="goTo('all-posts')">
+      <span>See all posts</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+        <span>Logout</span>
+    </button>
+  </mat-menu>
